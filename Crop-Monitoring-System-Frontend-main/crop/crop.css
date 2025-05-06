@@ -1,0 +1,142 @@
+/* Crop Management Styles */
+.crop-management-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.crop-form, .crop-table {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.crop-form h2, .crop-table h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.crop-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.crop-table table th, .crop-table table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.crop-table table th {
+    background: #f5f5f5;
+}
+
+.crop-table .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.crop-table .delete-btn:hover {
+    background: #ff2a2a;
+}
+
+/* Responsive Styles */
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 1024px) {
+    .crop-management-container {
+        padding: 1.5rem;
+    }
+
+    .crop-form h2, .crop-table h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        padding: 0.7rem;
+    }
+
+    .add-btn {
+        padding: 0.7rem 1.8rem;
+    }
+
+    .crop-table table th, .crop-table table td {
+        padding: 0.9rem;
+    }
+
+    .crop-table table {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small devices (phones, 768px and below) */
+@media (max-width: 768px) {
+    .crop-management-container {
+        padding: 1.2rem;
+    }
+
+    .crop-form, .crop-table {
+        padding: 1.2rem;
+    }
+
+    .crop-form h2, .crop-table h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .add-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .crop-table table th, .crop-table table td {
+        padding: 0.8rem;
+    }
+}
+
+/* Extra small devices (phones, 480px and below) */
+@media (max-width: 480px) {
+    .crop-management-container {
+        padding: 1rem;
+    }
+
+    .crop-form, .crop-table {
+        padding: 1rem;
+    }
+
+    .crop-form h2, .crop-table h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem;
+    }
+
+    .add-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .crop-table table th, .crop-table table td {
+        padding: 0.6rem;
+    }
+
+    /* Make table scrollable on smaller devices */
+    .crop-table {
+        overflow-x: auto;
+    }
+
+    .crop-table table {
+        font-size: 0.85rem;
+    }
+}
