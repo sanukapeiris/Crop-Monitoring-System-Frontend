@@ -1,0 +1,47 @@
+/* Staff Management Styles */
+.staff-management-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.staff-form, .staff-table {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.staff-form h2, .staff-table h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.staff-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.staff-table table th, .staff-table table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.staff-table table th {
+    background: #f5f5f5;
+}
+
+.staff-table .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.staff-table .delete-btn:hover {
+    background: #ff2a2a;
+}
