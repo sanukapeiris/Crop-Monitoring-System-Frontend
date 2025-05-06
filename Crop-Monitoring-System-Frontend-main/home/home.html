@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenShadow</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../vehicle/vehicle.css">
+    <link rel="stylesheet" href="../equipment/equipment.css">
+    <link rel="stylesheet" href="../log/log.css">
+    <link rel="stylesheet" href="../staff/staff.css">
+    <link rel="stylesheet" href="../crop/crop.css">
+    <link rel="stylesheet" href="../field/field.css">
+    <link rel="stylesheet" href="../settings/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+<div class="container">
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span style="color: #0D9F4F">GreenShadow</span>
+        </div>
+        <ul class="nav-items">
+            <li class="active" id="dashboard_nav">
+                <img src="https://api.iconify.design/mdi:view-dashboard.svg" alt="Dashboard">Dashboard
+            </li>
+            <li id="vehicle_nav">
+                <img src="https://api.iconify.design/mdi:car.svg" alt="Vehicle">Vehicle
+            </li>
+            <li id="equipment_nav">
+                <img src="https://api.iconify.design/mdi:tractor.svg" alt="Equipment">Equipment
+            </li>
+            <li id="log_nav">
+                <img src="https://api.iconify.design/mdi:clipboard-text.svg" alt="Logs">Logs
+            </li>
+            <li id="staff_nav">
+                <img src="https://api.iconify.design/mdi:account-hard-hat.svg" alt="Staff">Staff
+            </li>
+            <li id="crop_nav">
+                <img src="https://api.iconify.design/mdi:sprout.svg" alt="Crop Management">Crop Management
+            </li>
+            <li id="fields_nav">
+                <img src="https://api.iconify.design/mdi:terrain.svg" alt="Fields">Fields
+            </li>
+        </ul>
+        <ul class="bottom-nav">
+            <li id="settings_nav">
+                <img src="https://api.iconify.design/mdi:cog.svg" alt="Settings">Settings
+            </li>
+            <li class="logout" id="logout">
+                <img src="https://api.iconify.design/mdi:logout.svg" alt="Logout">Logout
+            </li>
+        </ul>
+    </nav>
+    <main class="main-content">
+
+        <header>
+            <div class="search-bar">
+                <input id="time" type="text">
+                <img src="https://api.iconify.design/mdi:bell.svg" alt="Notifications" class="notification-icon">
+            </div>
+            <div class="user-profile">
+                <img src="https://api.iconify.design/mdi:account-circle.svg" alt="Profile" class="profile-icon">
+                <span id="profile">Albert Flores</span>
+            </div>
+        </header>
+
+        <!-- dashboard -->
+        <div id="dashboard" class="weather-container">
+            <div class="greeting">
+                <div>
+                    <h1>Good Morning!</h1>
+                    <p>Optimize Your Farm Operation with Real-Time Insights</p>
+                </div>
+                <button class="export-btn">Export</button>
+            </div>
+            <div class="current-weather">
+                <div class="weather-header">
+                    <div class="date-info">
+                        <h2>Sunday</h2>
+                        <p>27 Aug, 2024</p>
+                    </div>
+                    <div class="temperature">
+                        <img src="https://api.iconify.design/mdi:weather-sunny.svg" alt="Weather" class="weather-icon">
+                        <span>28°C</span>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <h3>Wind Status</h3>
+                        <p>7.90 km/h</p>
+                        <span>9:00 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Humidity</h3>
+                        <p>85%</p>
+                        <span>Humidity is good</span>
+                    </div>
+                    <div class="detail-item">
+                        <h3>UV Index</h3>
+                        <p>4 uv</p>
+                        <span>Moderate UV</span>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Visibility</h3>
+                        <p>5 km</p>
+                        <span>9:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="forecast">
+                <h2>10 Day Forecast</h2>
+                <div class="forecast-items" id="forecast-container"></div>
+            </div>
+        </div>
+
+        <!-- vehicle -->
+        <div id="vehicle_management" class="vehicle-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Vehicles</h1>
+                    <p>Add, update, or delete vehicle information.</p>
+                </div>
+            </div>
+
+            <!-- Vehicle Form -->
+            <div class="vehicle-form">
+                <h2>Add/Update Vehicle</h2>
+                <form id="vehicle-form">
+                    <div class="form-group">
+                        <label for="licenNo">License Number:</label>
+                        <input type="text" id="licenNo" placeholder="Enter license number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" placeholder="Enter vehicle category" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="fuelType">Fuel Type:</label>
+                        <select id="fuelType">
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleStatus">Vehicle Status:</label>
+                        <select id="vehicleStatus">
+                            <option value="AVAILABLE">AVAILABLE</option>
+                            <option value="UNAVAILABLE">UNAVAILABLE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffIdOnVehicle">Staff ID:</label>
+                        <select id="staffIdOnVehicle">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark">Remark:</label>
+                        <textarea id="remark" placeholder="Enter remark"></textarea>
+                    </div>
+                    <button id="saveVehicleBtn" type="submit" class="add-btn">Save Vehicle</button>
+                    <button id="updateVehicleBtn" type="button" class="add-btn" style="display: none;">Update Vehicle</button>
+                    <button id="clearVehicleBtn" type="button" class="add-btn">Clear</button>
+                </form>
+            </div>
+
+            <!-- Vehicle Table -->
+            <div class="vehicle-table">
+                <h2>Vehicle List</h2>
+                <div  class="table-responsive">
+                    <table id="vehicle-list">
+                        <thead>
+                        <tr>
+                            <th>Vehicle Id</th>
+                            <th>Category</th>
+                            <th>Fuel Type</th>
+                            <th>Status</th>
+                            <th>Staff Id</th>
+                            <th>Edit</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                </div>
+        </div>
+
+        <!-- equipment -->
+        <div id="equipment_management" class="equipment-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Equipments</h1>
+                    <p>Add, update, or delete equipment information.</p>
+                </div>
+            </div>
+            <!-- Equipment Form -->
+            <div class="equipment-form">
+                <h2>Add/Update Equipment</h2>
+                <form id="equipment-form">
+                    <div class="form-group">
+                        <label for="equipmentName">Equipment Name:</label>
+                        <input type="text" id="equipmentName" placeholder="Enter equipment name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentType">Equipment Type:</label>
+                        <select id="equipmentType">
+                            <option value="ELECTRICAL">ELECTRICAL</option>
+                            <option value="MECHANICAL">MECHANICAL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipmentStatus">Equipment Status:</label>
+                        <select id="equipmentStatus">
+                            <option value="AVAILABLE">AVAILABLE</option>
+                            <option value="UNAVAILABLE">UNAVAILABLE</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="staffIdOnEquipment">Staff:</label>
+                        <select id="staffIdOnEquipment">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fieldIdOnEquipment">Field:</label>
+                        <select id="fieldIdOnEquipment">
+                        </select>
+                    </div>
+                    <button id="saveEquipmentBtn" type="submit" class="add-btn">Save Equipment</button>
+                    <button id="updateEquipmentBtn" type="button" class="add-btn" style="display: none;">Update Equipment</button>
+                    <button id="clearEquipmentBtn" type="button" class="add-btn">Clear</button>
+                </form>
+            </div>
+
+            <!-- Equipment Table -->
+            <div class="equipment-table">
+                <h2>Equipment List</h2>
+                <div  class="table-responsive">
+                    <table id="equipment-list">
+                        <thead>
+                        <tr>
+                            <th>Equipment Id</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Staff</th>
+                            <th>Field</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Log Management -->
+        <div id="log_management" class="log-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Logs</h1>
+                    <p>Add, update, or delete log information.</p>
+                </div>
+            </div>
+            <!-- Log Form -->
+            <div class="log-form">
+                <h2>Add/Update Log</h2>
+                <form id="log-form">
+                    <div class="form-group">
+                        <label for="logDate">Log Date:</label>
+                        <input type="date" id="logDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="logDetails">Log Details:</label>
+                        <textarea id="logDetails" placeholder="Enter log details" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="logImage">Log Image:</label>
+                        <input type="file" id="logImage" />
+                    </div>
+                    <button id="saveLogBtn" type="submit" class="add-btn">Save Log</button>
+                    <button id="updateLogBtn" type="button" class="update-btn" style="display: none;">Update Log</button>
+                    <button id="clearLogBtn" type="button" class="add-btn">Clear</button>
+
+                </form>
+            </div>
+
+            <!-- Log Table -->
+            <div class="log-table ">
+                <h2>Log List</h2>
+                <div  class="table-responsive">
+                    <table id="log-list">
+                        <thead>
+                        <tr>
+                            <th>Log ID</th>
+                            <th>Date</th>
+                            <th>Details</th>
+                            <th>Image</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Management -->
+        <div id="staff_management" class="staff-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Staff</h1>
+                    <p>Add, update, or delete staff information.</p>
+                </div>
+            </div>
+            <!-- Staff Form -->
+            <div class="staff-form">
+                <h2>Add/Update Staff</h2>
+                <form id="staff-form">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" placeholder="Enter first name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" placeholder="Enter last name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="designation">Designation:</label>
+                        <input type="text" id="designation" placeholder="Enter designation" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender">
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="joinedDate">Joined Date:</label>
+                        <input type="date" id="joinedDate" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="buildingNo">Building No:</label>
+                        <input type="text" id="buildingNo" placeholder="Enter building number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="lane">Lane:</label>
+                        <input type="text" id="lane" placeholder="Enter lane" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" placeholder="Enter city" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" id="state" placeholder="Enter state" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="postalcode">Postal Code:</label>
+                        <input type="text" id="postalcode" placeholder="Enter postal code" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNo">Contact No:</label>
+                        <input type="text" id="contactNo" placeholder="Enter contact number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Enter email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select id="role">
+                            <option value="MANAGER">Manager</option>
+                            <option value="ADMINISTRATIVE">Administrative</option>
+                            <option value="SCIENTIST">Scientist</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="logIdStaff">Log ID:</label>
+                        <select id="logIdStaff">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fieldIdOnStaff">Field ID:</label>
+                        <select id="fieldIdOnStaff">
+                        </select>
+                    </div>
+                    <button id="saveStaffBtn" type="submit" class="add-btn">Save Staff</button>
+                    <button id="updateStaffBtn" type="button" class="add-btn" style="display: none;">Update Staff</button>
+                    <button id="clearStaffBtn" type="button" class="add-btn">Clear</button>
+                </form>
+            </div>
+
+            <!-- Staff Table -->
+            <div class="staff-table">
+                <h2>Staff List</h2>
+                <div  class="table-responsive">
+                    <table id="staff-list">
+                        <thead>
+                        <tr>
+                            <th>Staff Id</th>
+                            <th>First Name</th>
+                            <th>Designation</th>
+                            <th>Contact No</th>
+                            <th>Gender</th>
+                            <th>Role</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crop Management -->
+        <div id="crop_management" class="crop-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Crops</h1>
+                    <p>Add, update, or delete crop information.</p>
+                </div>
+            </div>
+            <!-- Crop Form -->
+            <div class="crop-form">
+                <h2>Add/Update Crop</h2>
+                <form id="crop-form">
+                    <div class="form-group">
+                        <label for="commonName">Common Name:</label>
+                        <input type="text" id="commonName" placeholder="Enter common name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="scientificName">Scientific Name:</label>
+                        <input type="text" id="scientificName" placeholder="Enter scientific name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cropImg">Crop Image:</label>
+                        <input type="file" id="cropImg"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="cropCategory">Category:</label>
+                        <input type="text" id="cropCategory" placeholder="Enter crop category" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cropSeason">Crop Season:</label>
+                        <input type="text" id="cropSeason" placeholder="Enter crop season" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="fieldIdOnCrop">Field ID:</label>
+                        <select id="fieldIdOnCrop">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="logIdOnCrop">Log ID:</label>
+                        <select id="logIdOnCrop">
+                        </select>
+                    </div>
+                    <button id="saveCropBtn" type="submit" class="add-btn">Save Crop</button>
+                    <button id="updateCropBtn" type="button" class="add-btn" style="display: none;">Update Crop</button>
+                    <button id="clearCropBtn" type="button" class="add-btn">Clear</button>
+                </form>
+            </div>
+
+            <!-- Crop Table -->
+            <div class="crop-table">
+                <h2>Crop List</h2>
+                <div  class="table-responsive">
+                    <table id="crop-list">
+                        <thead>
+                        <tr>
+                            <th>Crop Id</th>
+                            <th>Common Name</th>
+                            <th>Image</th>
+                            <th>Category</th>
+                            <th>Crop Season</th>
+                            <th>Field ID</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Field Management -->
+        <div id="field_management" class="field-management-container">
+            <div class="greeting">
+                <div>
+                    <h1>Manage Fields</h1>
+                    <p>Add, update, or delete field information.</p>
+                </div>
+            </div>
+            <!-- Field Form -->
+            <div class="field-form">
+                <h2>Add/Update Field</h2>
+                <form id="field-form">
+                    <div class="form-group">
+                        <label for="fieldName">Field Name:</label>
+                        <input type="text" id="fieldName" placeholder="Enter field name" required />
+                    </div>
+                    <div id="map"></div>
+                    <div class="coordinates-container">
+                        <label for="latitude">Latitude:</label>
+                        <input type="text" id="latitude" placeholder="Enter latitude" required>
+                        <label for="longitude">Longitude:</label>
+                        <input type="text" id="longitude" placeholder="Enter longitude" required>
+                        <button id="goToLocation">Go to Location</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="fieldSize">Field Size(Acres):</label>
+                        <input type="text" id="fieldSize" placeholder="Enter field size" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="image1">Image 1:</label>
+                        <input type="file" id="image1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="image2">Image 2:</label>
+                        <input type="file" id="image2"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="logIdOnField">Log ID:</label>
+                        <select id="logIdOnField">
+                        </select>
+                    </div>
+                    <button id="saveFieldBtn" type="submit" class="add-btn">Save Field</button>
+                    <button id="updateFieldBtn" type="button" class="add-btn" style="display: none;">Update Field</button>
+                    <button id="clearFieldBtn" type="button" class="add-btn">Clear</button>
+                </form>
+            </div>
+
+            <!-- Field Table -->
+            <div class="field-table">
+                <h2>Field List</h2>
+                <div  class="table-responsive">
+                    <table id="field-list">
+                        <thead>
+                        <tr>
+                            <th>Field Id</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Image 1</th>
+                            <th>Image 2</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Settings -->
+        <div id="account_settings" class="settings-container">
+            <div class="greeting">
+                <div>
+                    <h1>Account Settings</h1>
+                    <p>Manage your email, password, role, and role code settings.</p>
+                </div>
+            </div>
+
+            <!-- Settings Form -->
+            <div class="settings-form">
+                <h2>Update Settings</h2>
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label for="emailForSettings">Email:</label>
+                        <input type="email" id="emailForSettings" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label for="roleForSettings">Role:</label>
+                        <select id="roleForSettings" required>
+                            <option value="MANAGER">Manager</option>
+                            <option value="ADMINISTRATIVE">Administrative</option>
+                            <option value="SCIENTIST">Scientist</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="roleCode">Role Code:</label>
+                        <input type="text" id="roleCode" placeholder="Enter role code" required />
+                    </div>
+                    <button id="saveSettingsBtn" type="submit" class="add-btn">Save Settings</button>
+                </form>
+            </div>
+
+            <!-- Change Password Form -->
+            <div class="settings-form">
+                <h2>Change Password</h2>
+                <form id="change-password-form">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password:</label>
+                        <input type="password" id="currentPassword" placeholder="Enter current password" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password:</label>
+                        <input type="password" id="newPassword" placeholder="Enter new password" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm new password" required />
+                    </div>
+                    <button id="changePasswordBtn" type="submit" class="add-btn">Change Password</button>
+                </form>
+            </div>
+
+            <div class="settings-form">
+                <h2>Delete Account</h2>
+                <form id="delete-account-form">
+                    <div class="form-group">
+                        <label for="deletePassword">Password:</label>
+                        <input type="password" id="deletePassword" placeholder="Enter password" required />
+                    </div>
+                    <button id="deleteAccountBtn" type="button" class="delete-btn">Delete Account</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</div>
+<script src="../assets/lib/jquery.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.1.4/js/dataTables.bootstrap5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../script.js"></script>
+<script type="module" src="home.js"></script>
+<script type="module" src="../vehicle/vehicle.js"></script>
+<script type="module" src="../equipment/equipment.js"></script>
+<script type="module" src="../log/log.js"></script>
+<script type="module" src="../staff/staff.js"></script>
+<script type="module" src="../crop/crop.js"></script>
+<script type="module" src="../field/field.js"></script>
+<script type="module" src="../settings/settings.js"></script>
+<script src="../navigation.js"></script>
+</body>
+</html>
