@@ -1,0 +1,48 @@
+/* Log Management Styles */
+.log-management-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.log-form, .log-table {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.log-form h2, .log-table h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.log-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.log-table table th, .log-table table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.log-table table th {
+    background: #f5f5f5;
+}
+
+.log-table .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.log-table .delete-btn:hover {
+    background: #ff2a2a;
+}
