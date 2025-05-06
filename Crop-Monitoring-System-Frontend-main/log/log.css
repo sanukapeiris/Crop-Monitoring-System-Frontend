@@ -1,48 +1,95 @@
-/* Log Management Styles */
-.log-management-container {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+/* Log Page - Purple Documentation Theme */
+#log_management {
+    background-color: #f9f5ff;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.log-form, .log-table {
-    background: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+#log_management h1 {
+    color: #6a1b9a;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.log-form h2, .log-table h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+#log_management p {
+    color: #555;
+    font-size: 1rem;
 }
 
+.log-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(106, 27, 154, 0.1);
+    margin-bottom: 30px;
+}
 
-.log-table table {
+.log-form h2 {
+    color: #6a1b9a;
+    margin-top: 0;
+    border-bottom: 2px solid #e1bee7;
+    padding-bottom: 10px;
+}
+
+#log-form .form-group {
+    margin-bottom: 15px;
+}
+
+#log-form textarea {
+    min-height: 100px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ce93d8;
+    border-radius: 6px;
+    background-color: #f9f5ff;
+}
+
+.log-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(106, 27, 154, 0.1);
+}
+
+.log-table h2 {
+    color: #6a1b9a;
+    margin-top: 0;
+}
+
+#log-list {
     width: 100%;
     border-collapse: collapse;
 }
 
-.log-table table th, .log-table table td {
-    padding: 1rem;
+#log-list th {
+    background-color: #e1bee7;
+    color: #4a148c;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
 }
 
-.log-table table th {
-    background: #f5f5f5;
+#log-list td {
+    padding: 12px;
+    border-bottom: 1px solid #e1bee7;
 }
 
-.log-table .delete-btn {
-    background: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
+#log-list tr:hover {
+    background-color: #f3e5f5;
 }
 
-.log-table .delete-btn:hover {
-    background: #ff2a2a;
+/* Shared button styles with purple accent */
+#log_management .add-btn {
+    background-color: #6a1b9a;
+}
+
+#log_management .add-btn:hover {
+    background-color: #4a148c;
+}
+
+.update-btn {
+    background-color: #9c27b0;
+}
+
+.update-btn:hover {
+    background-color: #7b1fa2;
 }

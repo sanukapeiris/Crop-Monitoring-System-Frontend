@@ -1,46 +1,110 @@
-.vehicle-management-container {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+/* Vehicle Page - Blue Industrial Theme */
+#vehicle_management {
+    background-color: #f5f9ff;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.vehicle-form, .vehicle-table {
-    background: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+#vehicle_management h1 {
+    color: #1976d2;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.vehicle-form h2, .vehicle-table h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+#vehicle_management p {
+    color: #555;
+    font-size: 1rem;
 }
 
-.vehicle-table table {
+.vehicle-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+    margin-bottom: 30px;
+}
+
+.vehicle-form h2 {
+    color: #1976d2;
+    margin-top: 0;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 10px;
+}
+
+#vehicle-form .form-group {
+    margin-bottom: 15px;
+}
+
+#vehicle-form label {
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#vehicle-form input,
+#vehicle-form select,
+#vehicle-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbdefb;
+    border-radius: 6px;
+    background-color: #f5f9ff;
+}
+
+#vehicle-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+}
+
+.vehicle-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+}
+
+.vehicle-table h2 {
+    color: #1976d2;
+    margin-top: 0;
+}
+
+#vehicle-list {
     width: 100%;
     border-collapse: collapse;
 }
 
-.vehicle-table table th, .vehicle-table table td {
-    padding: 1rem;
+#vehicle-list th {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
 }
 
-.vehicle-table table th {
-    background: #f5f5f5;
+#vehicle-list td {
+    padding: 12px;
+    border-bottom: 1px solid #e3f2fd;
 }
 
-.vehicle-table .delete-btn {
-    background: #ff4d4f;
+#vehicle-list tr:hover {
+    background-color: #f5f9ff;
+}
+
+.add-btn {
+    background-color: #1976d2;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    border-radius: 6px;
     cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.3s;
 }
 
-.vehicle-table .delete-btn:hover {
-    background: #ff2a2a;
+.add-btn:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
 }

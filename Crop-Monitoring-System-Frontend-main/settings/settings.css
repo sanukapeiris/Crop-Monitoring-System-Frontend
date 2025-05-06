@@ -1,64 +1,190 @@
-/* Change Password Section Styles */
-.settings-container {
-    background: white;
+/* Settings Page - Professional Blue Security Theme */
+:root {
+    --settings-primary: #1976d2;
+    --settings-secondary: #64b5f6;
+    --settings-light: #e3f2fd;
+    --settings-dark: #0d47a1;
+    --settings-danger: #d32f2f;
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#account_settings {
+    background-color: #f5f9ff;
+    padding: 25px;
     border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+#account_settings h1 {
+    color: var(--settings-dark);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+#account_settings p {
+    color: #5a5a5a;
+    font-size: 1.05rem;
 }
 
 .settings-form {
-    background: var(--bg-color);
+    background-color: white;
+    padding: 25px;
     border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-top: 2rem;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid rgba(100, 181, 246, 0.3);
 }
 
 .settings-form h2 {
+    color: var(--settings-primary);
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--settings-light);
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
+#settings-form .form-group,
+#change-password-form .form-group,
+#delete-account-form .form-group {
+    margin-bottom: 20px;
 }
 
-.form-group label {
+#settings-form label,
+#change-password-form label,
+#delete-account-form label {
     display: block;
-    margin-bottom: 0.5rem;
+    color: #4a4a4a;
+    margin-bottom: 8px;
     font-weight: 500;
 }
 
-.form-group input {
+#settings-form input,
+#change-password-form input,
+#delete-account-form input,
+#settings-form select {
     width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid var(--settings-secondary);
     border-radius: var(--border-radius);
+    background-color: #f5f9ff;
+    transition: all 0.3s;
 }
 
-.add-btn {
-    background: var(--primary-color);
+#settings-form input:focus,
+#change-password-form input:focus,
+#delete-account-form input:focus {
+    outline: none;
+    border-color: var(--settings-primary);
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+#settings-form input[disabled] {
+    background-color: #f0f0f0;
+    color: #777;
+}
+
+/* Button Styles */
+#account_settings .add-btn {
+    background-color: var(--settings-primary);
     color: white;
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 12px 24px;
     border-radius: var(--border-radius);
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
 }
 
-.add-btn:hover {
-    background-color: #0b8a43;
+#account_settings .add-btn:hover {
+    background-color: var(--settings-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(13, 71, 161, 0.2);
 }
 
 .delete-btn {
-    background: #ff4d4f;
+    background-color: var(--settings-danger);
     color: white;
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 12px 24px;
     border-radius: var(--border-radius);
     cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
 }
 
 .delete-btn:hover {
-    background: #ff2a2a;
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+}
+
+/* Warning Section */
+#delete-account-form {
+    border-left: 4px solid var(--settings-danger);
+    padding-left: 20px;
+}
+
+#delete-account-form h2 {
+    color: var(--settings-danger);
+    border-bottom-color: #ffcdd2;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    #account_settings {
+        padding: 20px;
+    }
+
+    .settings-form {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    #account_settings {
+        padding: 16px;
+    }
+
+    #account_settings h1 {
+        font-size: 2rem;
+    }
+
+    .settings-form h2 {
+        font-size: 1.6rem;
+    }
+
+    #settings-form input,
+    #change-password-form input,
+    #delete-account-form input {
+        padding: 10px;
+    }
+
+    .add-btn, .delete-btn {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #account_settings {
+        padding: 12px;
+    }
+
+    .settings-form {
+        padding: 16px;
+    }
+
+    .add-btn, .delete-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #delete-account-form {
+        padding-left: 15px;
+    }
 }

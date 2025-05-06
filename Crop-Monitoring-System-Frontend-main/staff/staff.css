@@ -1,47 +1,78 @@
-/* Staff Management Styles */
-.staff-management-container {
-    background: white;
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+/* Staff Page - Teal Professional Theme */
+#staff_management {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 12px;
 }
 
-.staff-form, .staff-table {
-    background: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-bottom: 2rem;
+#staff_management h1 {
+    color: #00796b;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.staff-form h2, .staff-table h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+#staff_management p {
+    color: #555;
+    font-size: 1rem;
 }
 
-.staff-table table {
+.staff-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.1);
+    margin-bottom: 30px;
+}
+
+.staff-form h2 {
+    color: #00796b;
+    margin-top: 0;
+    border-bottom: 2px solid #b2dfdb;
+    padding-bottom: 10px;
+}
+
+#staff-form .form-group {
+    margin-bottom: 15px;
+}
+
+.staff-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.1);
+}
+
+.staff-table h2 {
+    color: #00796b;
+    margin-top: 0;
+}
+
+#staff-list {
     width: 100%;
     border-collapse: collapse;
 }
 
-.staff-table table th, .staff-table table td {
-    padding: 1rem;
+#staff-list th {
+    background-color: #b2dfdb;
+    color: #004d40;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
 }
 
-.staff-table table th {
-    background: #f5f5f5;
+#staff-list td {
+    padding: 12px;
+    border-bottom: 1px solid #b2dfdb;
 }
 
-.staff-table .delete-btn {
-    background: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
+#staff-list tr:hover {
+    background-color: #e0f2f1;
 }
 
-.staff-table .delete-btn:hover {
-    background: #ff2a2a;
+/* Shared button styles with teal accent */
+#staff_management .add-btn {
+    background-color: #00796b;
+}
+
+#staff_management .add-btn:hover {
+    background-color: #00695c;
 }
