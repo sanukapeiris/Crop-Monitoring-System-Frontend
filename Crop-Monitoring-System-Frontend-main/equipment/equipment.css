@@ -1,0 +1,141 @@
+/* Equipment Management Styles */
+.equipment-management-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.equipment-form, .equipment-table {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.equipment-form h2, .equipment-table h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.equipment-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.equipment-table table th, .equipment-table table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.equipment-table table th {
+    background: #f5f5f5;
+}
+
+.equipment-table .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.equipment-table .delete-btn:hover {
+    background: #ff2a2a;
+}
+
+/* Responsive Styles */
+
+/* Medium devices (tablets, 1024px and below) */
+@media (max-width: 1024px) {
+    .equipment-management-container {
+        padding: 1.5rem;
+    }
+
+    .equipment-form h2, .equipment-table h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 0.7rem;
+    }
+
+    .add-btn {
+        padding: 0.7rem 1.8rem;
+    }
+
+    .equipment-table table th, .equipment-table table td {
+        padding: 0.9rem;
+    }
+
+    .equipment-table table {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small devices (phones, 768px and below) */
+@media (max-width: 768px) {
+    .equipment-management-container {
+        padding: 1.2rem;
+    }
+
+    .equipment-form, .equipment-table {
+        padding: 1.2rem;
+    }
+
+    .equipment-form h2, .equipment-table h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .add-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .equipment-table table th, .equipment-table table td {
+        padding: 0.8rem;
+    }
+}
+
+/* Extra small devices (phones, 480px and below) */
+@media (max-width: 480px) {
+    .equipment-management-container {
+        padding: 1rem;
+    }
+
+    .equipment-form, .equipment-table {
+        padding: 1rem;
+    }
+
+    .equipment-form h2, .equipment-table h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        padding: 0.6rem;
+    }
+
+    .add-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .equipment-table table th, .equipment-table table td {
+        padding: 0.6rem;
+    }
+
+    /* Make table scrollable on smaller devices */
+    .equipment-table {
+        overflow-x: auto;
+    }
+
+    .equipment-table table {
+        font-size: 0.85rem;
+    }
+}
