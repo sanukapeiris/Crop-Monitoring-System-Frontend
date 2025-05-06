@@ -1,0 +1,46 @@
+.vehicle-management-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.vehicle-form, .vehicle-table {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.vehicle-form h2, .vehicle-table h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.vehicle-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vehicle-table table th, .vehicle-table table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.vehicle-table table th {
+    background: #f5f5f5;
+}
+
+.vehicle-table .delete-btn {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.vehicle-table .delete-btn:hover {
+    background: #ff2a2a;
+}
